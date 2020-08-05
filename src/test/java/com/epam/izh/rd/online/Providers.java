@@ -20,7 +20,7 @@ public class Providers {
         return Stream.of(
                 arguments(Author.class, "name", String.class),
                 arguments(Author.class, "lastName", String.class),
-                arguments(Author.class, "birthdate", LocalDate.class),
+                arguments(Author.class, "birthDate", LocalDate.class),
                 arguments(Author.class, "country", String.class),
                 arguments(Book.class, "numberOfPages", int.class),
                 arguments(Book.class, "name", String.class),

@@ -1,5 +1,8 @@
 package com.epam.izh.rd.online.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -66,7 +69,7 @@ public class Author {
         this.country = country;
     }
 
-    //TODO: check equals and hashCode
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,10 +81,12 @@ public class Author {
                 Objects.equals(country, author.country);
     }
 
+
     @Override
     public int hashCode() {
         return Objects.hash(name, lastName, birthDate, country);
     }
+
 
     @Override
     public String toString() {

@@ -26,7 +26,7 @@ public class SimpleAuthorService implements AuthorService{
 
     @Override
     public Author findByFullName(String name, String lastname) {
-        return null;
+        return authorRepository.findByFullName(name,lastname);
     }
 
     @Override

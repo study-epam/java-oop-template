@@ -8,14 +8,12 @@ public class SimpleAuthorRepository implements AuthorRepository {
 
     private Author[] authors = new Author[0];
 
-    public boolean checkNull(Author author) {
-        return author.getName() == null || author.getLastName() == null;
-    }
+
 
     //TODO: check save()
     @Override
     public boolean save(Author author) {
-        if (findByFullName(author.getName(), author.getLastName()) != null || authors == null || (checkNull(author))) {
+        if (findByFullName(author.getName(), author.getLastName()) != null || authors == null) {
             return false;
         } else {
             if (authors.length == 0) {
@@ -53,17 +51,15 @@ public class SimpleAuthorRepository implements AuthorRepository {
      */
     @Override
     public boolean remove(Author author) {
-        if (findByFullName(author.getName(), author.getLastName()) == null || authors == null || authors.length == 0 || checkNull(author)) {
-            return false;
-        } else {
-
-            return true;
-        }
+//        if (findByFullName(author.getName(), author.getLastName()) == null || authors == null || authors.length == 0 || checkNull(author)) {
+//            return false;
+//        } else {
+//
+//            return true;
+//        }
+        return false;
     }
 
-    /**
-     * Метод возвращает количество сохраненных сущностей в массиве authors.
-     */
     @Override
     public int count() {
         return authors.length;

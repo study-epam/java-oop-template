@@ -159,22 +159,11 @@ public class SchoolbookServiceTest {
                         "Еще раз изучите требования.");
 
         Author author = getNewInstanceOfAuthor("Александр", "Козлов", LocalDate.of(1960, 12, 20), "Россия");
-        Author author1 = getNewInstanceOfAuthor("Александр", "Козлов", LocalDate.of(1960, 12, 20), "Россия");
-        Author author2 = getNewInstanceOfAuthor(null, null, LocalDate.of(1960, 12, 20), "Россия");
-//        Author author = getNewInstanceOfAuthor("Александр", "Козлов", LocalDate.of(1960, 12, 20), "Россия");
-//        Author author = getNewInstanceOfAuthor("Александр", "Козлов", LocalDate.of(1960, 12, 20), "Россия");
-//        Author author = getNewInstanceOfAuthor("Александр", "Козлов", LocalDate.of(1960, 12, 20), "Россия");
 
         isSaveSuccessful = authorService.save(author);
         assertTrue(isSaveSuccessful,
                 "Произошла ошибка при сохранении нового автора. Метод 'save' в 'SimpleAuthorService' " +
                         "или 'SimpleAuthorRepository' реализован неправильно. Метод вернул false вместе true.");
-        isSaveSuccessful = authorService.save(author1);
-        assertFalse(isSaveSuccessful,
-                "Произошла ошибка при сохранении нового автора. too");
-        isSaveSuccessful = authorService.save(author2);
-        assertFalse(isSaveSuccessful,
-                "Произошла ошибка при сохранении нового автора. null");
 
         int count = authorService.count();
         assertEquals(1, count,

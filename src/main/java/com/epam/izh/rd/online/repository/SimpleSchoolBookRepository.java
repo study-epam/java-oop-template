@@ -3,6 +3,9 @@ package com.epam.izh.rd.online.repository;
 import com.epam.izh.rd.online.entity.SchoolBook;
 
 public class SimpleSchoolBookRepository implements BookRepository<SchoolBook> {
+
+    private SchoolBook[] schoolBooks = new SchoolBook[0];
+
     @Override
     public boolean save(SchoolBook book) {
         return false;
@@ -22,5 +25,4 @@ public class SimpleSchoolBookRepository implements BookRepository<SchoolBook> {
     public int count() {
         return 0;
     }
-    private SchoolBook[] schoolBooks;
 }

@@ -2,6 +2,7 @@ package com.epam.izh.rd.online.service;
 
 import com.epam.izh.rd.online.entity.Author;
 import com.epam.izh.rd.online.repository.AuthorRepository;
+import com.epam.izh.rd.online.repository.SimpleAuthorRepository;
 
 public class SimpleAuthorService implements AuthorService{
 
@@ -14,9 +15,13 @@ public class SimpleAuthorService implements AuthorService{
         this.authorRepository = authorRepository;
     }
 
+    /**
+     * Метод должен сохранять автора.
+     * По факту, он просто обращается к репозиторию с авторами и вызывает аналогичный метод, псоле чего возвращает результат.
+     */
     @Override
     public boolean save(Author author) {
-        return false;
+        return authorRepository.save(author);
     }
 
     @Override
@@ -31,7 +36,7 @@ public class SimpleAuthorService implements AuthorService{
 
     @Override
     public int count() {
-        return 0;
+        return authorRepository.count();
     }
 
 

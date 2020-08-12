@@ -10,7 +10,7 @@ public class SimpleAuthorRepository implements AuthorRepository {
 
 
 
-    //TODO: check save()
+    //TODO: check save(), check null???
     @Override
     public boolean save(Author author) {
         if (findByFullName(author.getName(), author.getLastName()) != null || authors == null) {
@@ -49,15 +49,15 @@ public class SimpleAuthorRepository implements AuthorRepository {
      * Если автор был найден и удален, метод должен вернуть true, в противном случае, если автор не был найден, метод
      * должен вернуть false.
      */
+    //TODO: test, if name was in the center
     @Override
     public boolean remove(Author author) {
-//        if (findByFullName(author.getName(), author.getLastName()) == null || authors == null || authors.length == 0 || checkNull(author)) {
-//            return false;
-//        } else {
-//
-//            return true;
-//        }
-        return false;
+        if (findByFullName(author.getName(), author.getLastName()) == null || authors == null || authors.length == 0) {
+            return false;
+        } else if (author.equals(findByFullName(author.getName(), author.getLastName()))) {
+                authors = Arrays.copyOf(authors, authors.length - 1);
+                return true;
+        } return false;
     }
 
     @Override
